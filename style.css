@@ -1,0 +1,442 @@
+:root {
+    --main-c:#9AA29A;
+    --border-r:.2rem;
+}
+
+/**Estilos Generales**/
+
+@font-face{
+    font-family: 'forum';
+    src: url(fuentes/Forum-Regular.ttf);
+}
+
+
+html *{
+    margin: 0;
+    padding: 0;
+    font-family: 'forum';
+}
+
+p {
+    font-size: 1.1rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul, li{
+    list-style: none; /**Para que no aparezca el puntito**/
+}
+
+.cta {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    background-color: rgb(38, 40, 131);
+    padding: .5rem 1rem;
+    border-radius: var(--border-r);
+    border: none;
+    margin: 10px;
+}
+
+h1 {
+    font-size: 2.8rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 2.3rem;
+}
+
+/**Header**/
+
+.header-landing {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #f2f2f2;
+    flex-direction: column;
+}
+
+.wrap-cabecera {
+    order: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.logo-header {
+    width: 100px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.botones-cabecera {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 16px 42px;
+    justify-content: space-between;
+}
+
+.perfil,
+.carrito,
+.lupita {
+    background-color: none;
+    cursor: pointer;
+    margin-right: 10px;
+    border: none;
+}
+
+.botones-cabecera img {
+    width: 24px;
+    height: 24px;
+}
+
+.header-nav {
+    order: 2;
+    display:flex;
+    justify-content: space-between;
+}
+
+.button-container {
+    position: relative;
+    
+}
+
+.button-container button {
+    position: relative;
+    z-index: 1;
+}
+
+.button-container:hover .button-text {
+    opacity: 1;
+    transition: opacity 0.3s ease,
+}
+
+.button-text {
+    position: absolute;
+    top: -30px; /* Mueve el texto hacia arriba */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #5f8fc3;
+    color:white; /* Cambia el color del texto a negro */
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.miniaturas,
+.escenario,
+.soporte {
+    position: relative;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease, transform 0.3s ease; /* Añadimos transform a la transición */;
+    background-color: #5f8fc3;
+    color: #fff;
+    cursor: pointer;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 30px;
+    margin: 12px;
+    overflow: hidden;
+}
+
+.miniaturas .button-text,
+.escenario .button-text,
+.soporte .button-text {
+    position: absolute;
+    top: -105%; /* Posicionamos el texto debajo del círculo */
+    left: 50%;
+    display: none;
+    transform: translateX(-50%, -50%);
+    background-color: transparent;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.miniaturas:hover .button-text,
+.escenario:hover .button-text,
+.soporte:hover .button-text {
+    top: 50%;
+    opacity: 1; /* Hacemos visible el texto */
+}
+
+.miniaturas::before,
+.escenario::before,
+.soporte::before {
+    content: attr(data-text); /* Utiliza el atributo data-text para obtener el texto */
+    position: absolute;
+    top: -135px; /* Ajusta la posición vertical del texto */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #5f8fc3; /* Color del fondo del texto */
+    color: white; /* Color del texto */
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.miniaturas:hover::before,
+.escenario:hover::before,
+.soporte:hover::before {
+    display: block; /* Muestra el texto cuando se pasa el ratón sobre el botón */
+}
+
+.button-container:hover .button-text {
+    opacity: 1;
+}
+
+.miniaturas:hover,
+.escenario:hover,
+.soporte:hover {
+    border-color: white;
+    transform: scale(1.1); /* Escalamos el círculo */
+}
+
+.header-nav img {
+    width: 40px;
+    height: 40px;
+}
+
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+}
+
+.wrap-gallery-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+    background-color: white;
+}
+
+.wrap-gallery-section button {
+    background-color: white;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrap-gallery-section .galeria {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 5px;
+}
+
+.sumergida,
+.colinas,
+.bosques,
+.dioramas {
+    border: none;
+}
+
+.slogan-section {
+    width: 100%;
+    overflow: hidden; /* Evita que la imagen se desborde */
+}
+
+.wrap-slogan-section {
+    position: relative;
+}
+
+.wrap-slogan-section img {
+    width: 100%;
+    display: block;
+    opacity: 0.5;
+    padding: 12px;
+}
+
+.slogan {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; /* Cambia el color del texto según tu diseño */
+    text-align: center;
+    font-size: 40px; /* Ajusta el tamaño del texto según sea necesario */   
+    width: 80%; 
+    z-index: 1;
+}
+
+.sub {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-size: 22px;
+    z-index: 1;
+    max-width: 80%;
+}
+
+.content-container {
+    margin-bottom: 120px;
+}
+
+.seccion-servicios {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+    background-color: white;
+    margin-bottom: 100px;
+}
+
+.titulo-servicios {
+    width: 100%;
+}
+
+.titulo-servicios h2 {
+    font-size: 60px; /* Ajusta el tamaño de la fuente según sea necesario */
+    text-align: center;
+    color: #5a5c5a;
+    border: 2px solid #ffffff;
+    border-radius: 20px;
+    padding: 10px 20px;
+    background-color: #c7d3be;
+}
+
+.seccion-productos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    flex-grow: 1;
+}
+
+.seccion-servicios, .seccion-productos {
+    margin: 20px 0;
+}
+
+.desarrollo-servicio {
+    width: 300px;
+    margin: 10px;
+    margin-bottom: 120px;
+    text-align: justify;
+    flex: 1 1 calc(33.33% - 20px);
+    padding: 10px;
+    box-sizing: border-box;
+    height: auto;
+}
+
+.contenido1, .contenido2, .contenido3 {
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px; /* Añadido para separar los contenedores */
+}
+
+.imagenes1, .imagenes2, .imagenes3 {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.imagenes1 img, .imagenes2 img, .imagenes3 img {
+    width: calc(33.33% - 10px);
+    margin: 5px;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.texto1, .texto2, .texto3 {
+    flex: 1;
+    padding-left: 20px;
+    margin-bottom: 30px;
+    text-align: justify;
+}
+
+/* Media query para ajustar el diseño en pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+    .contenido1, .contenido2, .contenido3 {
+        flex-basis: calc(33.33% - 20px);
+        margin-right: 20px;
+    }
+
+    .contenido3 {
+        margin-right: 0;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+    margin-bottom: 80px;
+}
+
+.footer-section {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    margin-top: 20px;
+}
+
+.social-logos ul {
+    list-style-type: none;
+    padding: 0 20px;
+}
+
+.social-logos ul li {
+    display: inline;
+    margin: 0 10px;
+    margin-bottom: 20px;
+}
+
+.social-logos h2 {
+    margin-bottom: 30px;
+}
+.social-logo {
+    border-radius: 50%;
+    background-color: white;
+    padding: 12px;
+    width: 50px; /* Ajusta el tamaño según tus necesidades */
+    height: auto;
+}
